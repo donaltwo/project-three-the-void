@@ -1,32 +1,78 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+readme.MD
+Title Project 3 Space RPG
 
-Welcome,
+Table of Contents
+Introduction
+Player Expereince
+Game Flowchart
+How to Play
+Features
+Testing
+Deployment
+Known Issues
+Resources
+Credits & Acknowldegements 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Introdcution 
 
-## Reminders
+Looking at previous examples and having a life long interest in storytelling and gaming I decided to make a text adevnture.
+Idea: A text adventure set in space where you name and create a character and have three encounters while on a spaceship. The game follows standard RPG mechanics such as health, usable items and dice rolls to do certain actions in the style of Dungeons and Dragons.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+I started off with a map of the starting room and three rooms with three connecting corridors.
+*FLOWCHART SCREENSHOT HERE*
 
-## Creating the Heroku app
+I decicded the best way to make the rooms into classes.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+Player Expereince
 
-1. `heroku/python`
-2. `heroku/nodejs`
+I like games where there are mutiple branchges that you can experi9ence to maxcimisre replayablilty.
+I like games thnat allow choice and freedom to explore.
+I like games that surprise me.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+Game Flowchart
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+Started out with an inital flowchart of the game design.
 
-Connect your GitHub repository and deploy as normal.
+*SCREEENSHOTS NEDDED*
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+Deployment
+Hekrou Deployment
 
----
+From Heroku Dashboard created new app.
+Named the app Space RPG and selected Europe as region.
+Went to Settings tab.
+Added key PORT 8000 to config variavble.
+Added python and node.js buildpacks ensuring python buildpack is on top.
+Connected with Github in deploy section.
+Manually deploy the branch by clicking and have it be built wsith logs deployed game is able to viewed & played.
 
-Happy coding!
+Resources
+
+Resources
+https://pypi.org/
+
+https://pypi.org/project/colorama/
+
+https://peps.python.org/pep-0008/
+
+https://patorjk.com/software/taag/#p=display&f=Small&t=Party
+
+https://overapi.com/python
+
+https://www.makeuseof.com/python-text-adventure-game-create/
+
+https://github.com/patrickhladun/yolkaris-odyssey
+
+https://www.101computing.net/python-typing-text-effect/
+
+https://www.youtube.com/watch?v=pSYeMdIrKQw
+
+How To Code A Python Text-Based Adventure Game In 11 Minutes | Programming Tutorial For Beginners
+Python Text Based Adventure Game Tutorial!
+Python Classes in 1 Minute!
+Python Classes and Objects - OOP for Beginners
+
+
+
+Credits & Ackwoldgements
