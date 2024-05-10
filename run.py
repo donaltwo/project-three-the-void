@@ -1,17 +1,32 @@
-import random
+### Imported Python librabries random for random integers for dice rolls 
+## Time for timer
+import random,time,sys
+# Python typing text effect from 101 Computing.net
+def typingPrint(text):
+  for character in text:
+    sys.stdout.write(character)
+    sys.stdout.flush()
+    time.sleep(0.05)
+  
+def typingInput(text):
+  for character in text:
+    sys.stdout.write(character)
+    sys.stdout.flush()
+    time.sleep(0.05)
+  value = input()  
+  return value
 
 ### Intro Message ASCII Art
 
 intro_art = r"""                                                                                                                                                                            
-                                                                                                                                                                                              
- ░▒▓██████▓▒░░▒▓█▓▒░      ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓████████▓▒░      ░▒▓█▓▒░▒▓███████▓▒░       ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░      ░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░▒▓███████▓▒░  
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░              ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓████████▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░        ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓████████▓▒░▒▓██████▓▒░         ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░               ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░               ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░         ░▒▓██▓▒░   ░▒▓██████▓▒░░▒▓█▓▒░▒▓███████▓▒░  
-                                                                                                                                                                                              
+
+░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░      ░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░▒▓███████▓▒░       
+   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
+   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░              ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
+   ░▒▓█▓▒░   ░▒▓████████▓▒░▒▓██████▓▒░         ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
+   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░               ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
+   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░               ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
+   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░         ░▒▓██▓▒░   ░▒▓██████▓▒░░▒▓█▓▒░▒▓███████▓▒░                                                                                                                                                                                  
 """
 print(intro_art)
 
@@ -175,10 +190,11 @@ print("You see three corridors ahead of you one to your left, straight ahead and
 print("Which path will you take?")
 
 def direction():
-        player_input = print("Please choose which way to go left, straight ahead, or right: ").lower()
-        if player_input in ["left","straight ahead","right"]:
+        while True:
+         player_input = input("Please choose which way to go left, straight ahead, or right: ").lower()
+         if player_input in ["left","straight ahead","right"]:
             return player_input
-        else:        
+         else:        
             print("Invalid direction please try again from left, right or straight.")
 
 # Right corridor headed to Air lock
@@ -187,8 +203,30 @@ print("You find some blood streaks on the walls and ground but no corpses")
 print("You Pick up your walking pace as panic creeps in.")
 print("Spriting you run to the door at the end of the corridor.")
 print("You notice the sign Air Lock and notice three buttons coloured red, yellow and green on a control panel")
-print("What do you choose to do?")
-print("Choose to search the room, inspect the control panel or exit the room")
+# Newline escape sequence to present the options
+print("\nWhat do you choose to do?")
+print("1. Search the room.")
+print("2. Inspect the control panel.")
+print("3. Search the room.")
+
+action = input("Enter your choice (1, 2, 3,): ")
+if action == "1":
+    print("You begin to look around the room.")
+    result = dice_roll()
+    print("You rolled a:", result)
+    if result <=5:
+         # FAIL 
+        print("You find nothing.")
+         # PASS
+    if result <=6: 
+        print("You find an air lock manual.")
+        print("You decide to read the manual.")
+        print("Green- Open Lock")
+        print("Yellow- Timed Open for 15 seconds Lock")
+        print("Red - Close Lock")
+    if action =="2":
+        print("You see the three buttons")
+        # Needs to be expanded
 # Straight ahead to Escape Pod
 print("You proceeed straight ahead.")
 print("There's a eerie quiet as the lights flicker on the ship.")
