@@ -19,7 +19,9 @@ Looking at previous examples and having a life long interest in storytelling and
 Idea: A text adventure set in space where you name and create a character and have three encounters while on a spaceship. The game follows standard RPG mechanics such as health, usable items and dice rolls to do certain actions in the style of Dungeons and Dragons.
 
 I started off with a map of the starting room and three rooms with three connecting corridors.
-*FLOWCHART SCREENSHOT HERE*
+Map of Game
+![Game Map](https://github.com/donaltwo/project3-space-rpg/assets/155965788/5b180691-6315-49e8-a8b5-b7906bd7bd81)
+
 
 I decicded the best way to make the rooms into classes.
 
@@ -30,10 +32,11 @@ I like games thnat allow choice and freedom to explore.
 I like games that surprise me.
 
 Game Flowchart
+![game Logic](https://github.com/donaltwo/project3-space-rpg/assets/155965788/51ade94f-9414-4770-aceb-47abed9cf0f4)
 
 Started out with an inital flowchart of the game design.
 
-*SCREEENSHOTS NEDDED*
+
 
 
 Deployment
