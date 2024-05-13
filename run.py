@@ -83,20 +83,19 @@ def choose_race():
                 print("Invalid choice. Please enter a number corresponding to a race.")
         except ValueError:
             print("Invalid input. Please enter a number.")
-
 # Stat allocation for attributes
 
 print("Stat Allocation. Give your character additional points as you wish.")
 available_points = 10
 name = "Player Name"
-attributes = {"Human""Health": 5, "Attack": 3, "Luck": 2}
+attributes = {"Health": 5, "Attack": 3, "Luck": 2}
 
 while available_points > 0:
     print(f"\nPoints Remaining: {available_points}")
     print("Allocate points to attributes:")
     for attribute in attributes:
         print(f"{attribute}: {attributes[attribute]}")
-    attribute_choice = input("Enter attribute to allocate points (or 'done' to finish): ").capitalize()
+    attribute_choice = input("Enter attribute to allocate points (or 'done' to finish): ").lower()
 
     if attribute_choice == "Done":
         break
