@@ -1,32 +1,17 @@
 ### Imported Python librabries random for random integers for dice rolls 
-## Time for timer
-import random,time,sys
-# Python typing text effect from 101 Computing.net
-def typingPrint(text):
-  for character in text:
-    sys.stdout.write(character)
-    sys.stdout.flush()
-    time.sleep(0.05)
-  
-def typingInput(text):
-  for character in text:
-    sys.stdout.write(character)
-    sys.stdout.flush()
-    time.sleep(0.05)
-  value = input()  
-  return value
+import random
+
 
 ### Intro Message ASCII Art
 
 intro_art = r"""                                                                                                                                                                            
-
-░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░      ░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░▒▓███████▓▒░       
-   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
-   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░              ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
-   ░▒▓█▓▒░   ░▒▓████████▓▒░▒▓██████▓▒░         ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
-   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░               ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
-   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░               ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      
-   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░         ░▒▓██▓▒░   ░▒▓██████▓▒░░▒▓█▓▒░▒▓███████▓▒░                                                                                                                                                                                  
+ _____ _   _  _____   _   _  _____ ___________ 
+|_   _| | | ||  ___| | | | ||  _  |_   _|  _  \
+  | | | |_| || |__   | | | || | | | | | | | | |
+  | | |  _  ||  __|  | | | || | | | | | | | | |
+  | | | | | || |___  \ \_/ /\ \_/ /_| |_| |/ / 
+  \_/ \_| |_/\____/   \___/  \___/ \___/|___/  
+                                                                                                                                                                                                                                                                    
 """
 print(intro_art)
 
@@ -34,7 +19,26 @@ print(intro_art)
 print("Welcome to Space RPG Alone In The Void!")
 print("Please follow the instructions to create your own character for this story, good luck out there spacefarer!")
 
+# How to play
+print("You have various words you can type to help you navigate this adventure. Please check for typos before entering your commands.")
+print("Search- search the area for items")
+print("Exit- leave the  current area")
+print("Talk- speak to another character")
+print("Attack- enter into combat with the charcter")
+
+# Game Logic
+
+# Defining dice roll asking it to randomize a number between 1-20 to simulate throwing a D20
+def dice_roll():
+    return random.randint(1, 20)
+
+# Print function to show dice result to the user
+result = dice_roll()
+("You rolled a:", result)
+
 # Character Creation creates a unique character by name , racial background
+
+# Charcater class that creates user chosen name, race and attributes
 
 class Character:
     def __init__(self, name, race, health, attack, luck):
@@ -43,23 +47,30 @@ class Character:
         self.health = health
         self.attack = attack
         self.luck = luck
-    
+
+    # Shows user the stats
+
     def display_stats(self):
         print(f"Name: {self.name}")
         print(f"Race: {self.race}")
         print(f"Health: {self.health}")
         print(f"Attack: {self.attack}")
         print(f"Luck: {self.luck}")
+# Input player name for their character
 
 def create_player():
     name = input("Name your character: ")
     return name
+
+# Race options
 
 def choose_race():
     races = ["Earthling - you're a human who's ancestors once lived on Earth.", 
              "Martian - you're tenth generation from the Mars colonly.", 
              "Gorbling - a feline species from deep space small and blue in colour."]
     
+    # Race selection
+
     print("Select your race:")
     for i, race in enumerate(races, 1):
         print(f"{i}. {race}")
@@ -73,10 +84,12 @@ def choose_race():
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+# Stat allocation for attributes
+
 print("Stat Allocation. Give your character additional points as you wish.")
 available_points = 10
 name = "Player Name"
-attributes = {"Health": 5, "Attack": 3, "Luck": 2}
+attributes = {"Human""Health": 5, "Attack": 3, "Luck": 2}
 
 while available_points > 0:
     print(f"\nPoints Remaining: {available_points}")
@@ -103,8 +116,9 @@ race = choose_race()
 player = Character(name, race, attributes["Health"], attributes["Attack"], attributes["Luck"])
 print(f"\nCharacter {player.name} created with stats: Health: {player.health}, Attack: {player.attack}, Luck: {player.luck}")
 
+#  Room Class to make game map
 
-class Rooms:
+class Room:
     def __init__(self, name, description):
         self.name = name
         self.description = description
@@ -114,23 +128,26 @@ class Rooms:
         self.items.append(item)
 
 # Creating rooms and managing them all
+
 def create_rooms():
-    rooms = []
+    room = []
 
     # Adding rooms to the map
-    rooms.append(Rooms("Supply Closet", "A small closet overloaded with cleaning supplies."))
-    rooms.append(Rooms("Air Lock", "A chamber with a door that opens to  the crushing void of space."))
-    rooms.append(Rooms("Escape Pod", "A small pod for emergency escape, you're only hope for survival."))
-    rooms.append(Rooms("Crew Quarters", "Abandoned living quarters for the crew members."))
+    room.append(Room("Supply Closet", "A small closet overloaded with cleaning supplies."))
+    room.append(Room("Air Lock", "A chamber with a door that opens to  the crushing void of space."))
+    room.append(Room("Escape Pod", "A small pod for emergency escape, you're only hope for survival."))
+    room.append(Room("Crew Quarters", "Abandoned living quarters for the crew members."))
 
     # Adding items to individual rooms
-    rooms[0].add_item("Laser Gun")
-    rooms[0].add_item("Security Badge Pass")
-    rooms[1].add_item("Air Lock Control Panel")
-    rooms[1].add_item("Air Lock Control Manual")
-    rooms[2].add_item("Escape Pod Controls")
 
-    return rooms
+    room[0].add_item("Laser Gun")
+    room[0].add_item("Security Badge Pass")
+    room[1].add_item("Air Lock Control Panel")
+    room[1].add_item("Air Lock Control Manual")
+    room[2].add_item("Escape Pod Controls")
+
+    return room
+# Inventory class for player items
 
 class Inventory:
     def __init__(self):
@@ -140,6 +157,21 @@ class Inventory:
         self.items.append(item)
         print(f"You found a {item}.")
 
+    def remove_item(self, item):
+        if item in self.items:
+            self.items.remove(item)
+            print(f"You used {item}.")
+        else:
+            print(f"You don't have {item} in your inventory.")
+
+    def display_inventory(self):
+        if self.items:
+            print("Inventory:")
+            for item in self.items:
+                print("-", item)
+        else:
+            print("Your inventory is empty.")
+
 # Start Game
 print("Your eyes adjust as you open them to a dim room full of cleaning supplies.") 
 print("Blinking, you wince in pain as you touch your forehead.") 
@@ -147,13 +179,6 @@ print("Looking at your hand, you can see drying blood.")
 print("How did I get here...? Why am I not able to remember where I am?")
 print("Search the room?")
 
-# Defining dice roll asking it to randomize a number between 1-20 to simulate throwing a D20
-def dice_roll():
-    return random.randint(1, 20)
-
-# Print function to show dice result to the user
-result = dice_roll()
-("You rolled a:", result)
 
 # Prompt user for choice to search room or exit
 
@@ -186,6 +211,7 @@ if __name__ == "__main__":
         print("Please select a valid option.")
 
 # Character route selection 3 corridors 
+
 print("You see three corridors ahead of you one to your left, straight ahead and one to your right")
 print("Which path will you take?")
 
@@ -197,17 +223,21 @@ def direction():
          else:        
             print("Invalid direction please try again from left, right or straight.")
 
-# Right corridor headed to Air lock
-print("You decide to proceed by going down the right corridor.")
-print("You find some blood streaks on the walls and ground but no corpses")
-print("You Pick up your walking pace as panic creeps in.")
-print("Spriting you run to the door at the end of the corridor.")
+
+# Call the direction function to get user choice
+chosen_direction = direction()
+
+# Use the chosen direction 
+
+if chosen_direction == "right":
+    print("You decide to proceed by going down the right corridor.")
+    # Air Lock Scenario
+print( "You arrive to a door with an Air Lock sign, you enter eploring further.")
 print("You notice the sign Air Lock and notice three buttons coloured red, yellow and green on a control panel")
-# Newline escape sequence to present the options
 print("\nWhat do you choose to do?")
 print("1. Search the room.")
 print("2. Inspect the control panel.")
-print("3. Search the room.")
+print("3. Exit the room.")
 
 action = input("Enter your choice (1, 2, 3,): ")
 if action == "1":
@@ -227,12 +257,59 @@ if action == "1":
     if action =="2":
         print("You see the three buttons")
         # Needs to be expanded
+    if action =="3":
+        print("You exit the room.")
+
+elif chosen_direction == "left":
+    print("You decide to proceed by going down the left corridor.")
+    print("You find some blood streaks on the walls and ground but no corpses")
+    print("You Pick up your walking pace as panic creeps in.")
+    print("Spriting you run to the door at the end of the corridor.")
+else:
+    print("You decide to proceed straight ahead.")
+    # Left to Crew Quarters
+
+# Hallway encounter with an alien bounty hunter if you decide to go left Crew Quarters
+print("You exit the supply closet and step into a hallway.")
+print("You notice you're on a spaceship")
+print("You also notice you're not alone!")
+print("A tall blue alien bounty hunter is 10 feet away")
+print("You start to panic and need to make a decision quick")
+
+# Prompt user for choice to fight alien or to flee
+answer = input("Enter 'fight' or 'flee': ").lower()
+
+if answer == "fight":
+    print("You lunge at the alien, knocking them back and start grappling on the ground.")
+    print("You struggle as it attempts to push you off")
+    # Roll the dice again to determine fight outcome 
+    result = dice_roll()
+    if result <=11:
+        # PASS 
+        print("You headbutt the alien stunning it and making it motionless")
+        print("You pick yourself and start running")
+else:
+    print("You feebly struggle with the alien")
+    print("Your strength weakens and you feel blinding pain your neck")
+    print("The alien eviscerates you")
+    print("You are dead.")
+    print("Do you wish to continue?")
+    answer = input("Enter 'yes' or 'no'").lower()
+    if answer == "yes":
+        # Restart the game
+        pass
+    elif answer == "no":
+        print("Thanks for playing better luck next time!")
+        exit()
+# 3 advantage to roll outcome if you have a laser gun object
+print("You detangle yourself from the alien suddenly")
+print("Being back on your feet, you point your gun at the alien's face")
+print("You pull the trigger as the laser melts the alien's face into a sizzling pool of blue liquid")
 # Straight ahead to Escape Pod
 print("You proceeed straight ahead.")
 print("There's a eerie quiet as the lights flicker on the ship.")
 print("You noticed another figure slumped against a wall panting heavily.")
 print("'Stop!' the figure exclaims. You notice a beam of a laser rifle hover in fron of your vision")
-print("")
 # Prompt user for choice to talk to , attack the figure or run away
 answer = input("Choose 'talk', 'attack' or flee")
 
@@ -278,41 +355,4 @@ if result <=7:
         print("You have survived and are now outside where you began.")
         print("'I need a weapon to defend myself if I want to go again.'you mutter to yourself.")
 
-# Left to Crew Quarters
 
-# Hallway encounter with an alien bounty hunter if you decide to go left Crew Quarters
-print("You exit the supply closet and step into a hallway.")
-print("You notice you're on a spaceship")
-print("You also notice you're not alone!")
-print("A tall blue alien bounty hunter is 10 feet away")
-print("You start to panic and need to make a decision quick")
-
-# Prompt user for choice to fight alien or to flee
-answer = input("Enter 'fight' or 'flee': ").lower()
-
-if answer == "fight":
-    print("You lunge at the alien, knocking them back and start grappling on the ground.")
-    print("You struggle as it attempts to push you off")
-    # Roll the dice again to determine fight outcome 
-    result = dice_roll()
-    if result <=11:
-        # PASS 
-        print("You headbutt the alien stunning it and making it motionless")
-        print("You pick yourself and start running")
-else:
-    print("You feebly struggle with the alien")
-    print("Your strength weakens and you feel blinding pain your neck")
-    print("The alien eviscerates you")
-    print("You are dead.")
-    print("Do you wish to continue?")
-    answer = input("Enter 'yes' or 'no'").lower()
-    if answer == "yes":
-        # Restart the game
-        pass
-    elif answer == "no":
-        print("Thanks for playing better luck next time!")
-        exit()
-# 3 advantage to roll outcome if you have a laser gun object
-print("You detangle yourself from the alien suddenly")
-print("Being back on your feet, you point your gun at the alien's face")
-print("You pull the trigger as the laser melts the alien's face into a sizzling pool of blue liquid")
