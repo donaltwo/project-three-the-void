@@ -38,8 +38,6 @@ result = dice_roll()
 
 # Character Creation creates a unique character by name , racial background
 
-# Charcater class that creates user chosen name, race and attributes
-
 class Character:
     def __init__(self, name, race, health, attack, luck):
         self.name = name
@@ -48,29 +46,21 @@ class Character:
         self.attack = attack
         self.luck = luck
 
-    # Shows user the stats
-
     def display_stats(self):
         print(f"Name: {self.name}")
         print(f"Race: {self.race}")
         print(f"Health: {self.health}")
         print(f"Attack: {self.attack}")
         print(f"Luck: {self.luck}")
-# Input player name for their character
 
 def create_player():
     name = input("Name your character: ")
     return name
 
-# Race options
-
 def choose_race():
-    races = ["Earthling - you're a human who's ancestors once lived on Earth.", 
-             "Martian - you're tenth generation from the Mars colonly.", 
-             "Gorbling - a feline species from deep space small and blue in colour."]
-    
-    # Race selection
-
+    races = ["Earthling - you're a human whose ancestors once lived on Earth.", 
+             "Martian - you're tenth generation from the Mars colony.", 
+             "Gorbling - a feline species from deep space, small and blue in color."]
     print("Select your race:")
     for i, race in enumerate(races, 1):
         print(f"{i}. {race}")
@@ -83,11 +73,12 @@ def choose_race():
                 print("Invalid choice. Please enter a number corresponding to a race.")
         except ValueError:
             print("Invalid input. Please enter a number.")
-# Stat allocation for attributes
 
+# Stat allocation for attributes
 print("Stat Allocation. Give your character additional points as you wish.")
 available_points = 10
-name = "Player Name"
+name = create_player()
+race = choose_race()
 attributes = {"Health": 5, "Attack": 3, "Luck": 2}
 
 while available_points > 0:
@@ -97,21 +88,23 @@ while available_points > 0:
         print(f"{attribute}: {attributes[attribute]}")
     attribute_choice = input("Enter attribute to allocate points (or 'done' to finish): ").lower()
 
-    if attribute_choice == "Done":
+    if attribute_choice == "done":
         break
 
     if attribute_choice not in attributes:
         print("Invalid attribute. Please choose from Health, Attack, or Luck.")
         continue
 
-    points_to_allocate = int(input("Enter points to allocate: "))
-    if points_to_allocate <= available_points:
-        attributes[attribute_choice] += points_to_allocate
-        available_points -= points_to_allocate
-    else:
-        print("Not enough points. Try again.")
-name = create_player()
-race = choose_race()
+    try:
+        points_to_allocate = int(input("Enter points to allocate: "))
+        if points_to_allocate <= available_points:
+            attributes[attribute_choice] += points_to_allocate
+            available_points -= points_to_allocate
+        else:
+            print("Not enough points. Try again.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
 player = Character(name, race, attributes["Health"], attributes["Attack"], attributes["Luck"])
 print(f"\nCharacter {player.name} created with stats: Health: {player.health}, Attack: {player.attack}, Luck: {player.luck}")
 
