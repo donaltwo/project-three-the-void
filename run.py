@@ -86,7 +86,7 @@ while available_points > 0:
     print("Allocate points to attributes:")
     for attribute in attributes:
         print(f"{attribute}: {attributes[attribute]}")
-    attribute_choice = input("Enter attribute to allocate points (or 'done' to finish): ").lower()
+    attribute_choice = input("Enter attribute to allocate points (or 'done' to finish): ").capitalize()
 
     if attribute_choice == "done":
         break
