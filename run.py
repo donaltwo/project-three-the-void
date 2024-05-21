@@ -198,7 +198,7 @@ def create_character():
         name, race_str, attributes["Health"],
         attributes["Attack"], attributes["Luck"]
     )
-    print(f"\n{player.name})
+    print("f\n{player.name}")
     print("Health:{player.health} ,Attack:{player.attack}, Luck:{player.luck}")
 
 
