@@ -208,14 +208,6 @@ def intro():
     """
     print(INTRO_ART)
     print("Welcome to a text adventure Space RPG The Void!")
-    print("You will find items, encounter enemies and roll a 20-sided dice")
-    print("Like classic games such as Dungeons & Dragons")
-
-    """
-    Function to display the introduction and game instructions.
-    """
-    print(INTRO_ART)
-    print("Welcome to a text adventure Space RPG The Void!")
     print("You will find items, encounter enemies and explore!")
     print("Roll a dice for outcomes like in Dungeons & Dragons!")
     print("Please create your own unique character for this story")
