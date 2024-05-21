@@ -531,7 +531,7 @@ if answer == "talk":
         print("You have failed to escape the ship and it's now your grave.")
         print("You are dead.")
         print("Try again? Select restart or quit.")
-    answer = input("Restart or quit game? ").lower()
+        answer = input("Restart or quit game? ").lower()
     else:  # PASS TALK CHECK
         print("The figure hesitates, lowering their weapon.")
         print("You slowly approach each other.")
@@ -542,19 +542,19 @@ if answer == "talk":
         print("'We need a security badge to get the hell outta here!")
         print("'You don't have one, do you?'")
         # Check if badge pass is in user inventory
-
         if "Security Badge Pass" in Inventory:
             print("Oh thank god you do")
             print("You hand over the badge pass")
-            print("You and same escape to the planet Lur")
+            print("You and Sam escape to the planet Lur")
             print("You have survived!")
         else:
             print("You do not have the badge pass")
-            print("Sams eyes bulge in rage.")
+            print("Sam's eyes bulge in rage.")
             print("you hear a sickening crack as the ship explodes.")
             print("You are dead. And liquid.")
             print("Play again? Select restart or quit.")
             answer = input("Restart or quit game? ").lower()
+
 elif answer == "attack":  # COMBAT CHECK
     print("You lunge at your assailant.")
     result = dice_roll()
