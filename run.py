@@ -437,6 +437,7 @@ if chosen_direction == "right":
                 print("The last thing you ever experience is implosion.")
                 print("You are dead.")
                 print("Restart or quit?")
+             answer = input("Restart or quit game? ").lower()
             else:
                 pass
         elif action == "3":
@@ -530,6 +531,7 @@ if answer == "talk":
         print("You have failed to escape the ship and it's now your grave.")
         print("You are dead.")
         print("Try again? Select restart or quit.")
+answer = input("Restart or quit game? ").lower()
         answer = input("Restart or quit game? ").lower()
     else:  # PASS TALK CHECK
         print("The figure hesitates, lowering their weapon.")
