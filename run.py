@@ -198,8 +198,9 @@ def create_character():
         name, race_str, attributes["Health"],
         attributes["Attack"], attributes["Luck"]
     )
-    print("f\n{player.name}")
-    print("Health:{player.health} ,Attack:{player.attack}, Luck:{player.luck}")
+# Printing the player's character with stats
+    player.display_stats()
+    return player
 
 
 def intro():
@@ -223,6 +224,20 @@ def intro():
 
 
 intro()
+
+
+# Restart the game or quit for player death
+def restart_game():
+    print("You decide to try escape once more...")
+    while True:
+        answer = input("Restart the game or quit? (restart/quit): ").lower()
+        if answer == "restart":
+            start_game()  # Restart the game again
+        elif answer == "quit":
+            print("Thanks for playing! Better luck next time!")
+            break  # Exit the loop and quit the game
+        else:
+            print("Invalid input. Please enter 'restart' or 'quit'.")
 
 # Creating rooms and managing them all
 
@@ -332,7 +347,6 @@ if __name__ == "__main__":
 
         if result >= 9:
             # PASS
-            print("You find a laser gun with 2 ammo left.")
             print("You also get a badge pass and exit the room.")
         else:
             # FAIL
@@ -573,3 +587,9 @@ elif answer == "flee":  # ESCAPE CHECK
         print("Your legs pump as you hear the figure shouting at you.")
         print("A shot is fired, hitting the ceiling.")
         print("You have survived for now.")
+
+
+if __name__ == "__main__":
+    print(INTRO_ART)
+    player = create_character()
+    restart_game()
