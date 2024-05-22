@@ -49,6 +49,35 @@ Started out with an initial flowchart of the game design.
 
 
 ## Testing
+| Action                           | Input                             | Output                                                                                                    | Pass/Fail |
+|----------------------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------|-----------|
+| `create_player()`                | `Name`                            | Creates a character named by the player.                                                                          | Pass      |
+| `choose_race()`                  | `1` (Earthling)                   | Returns race string "Earthling - Human who once lived on Earth. +3 Luck -1 Attack" and choice number 1. | Pass      |
+| `choose_race()`                  | `2` (Martian)                     | Returns race string "Martian - Human from the Mars colony +4 Attack -2 Health" and choice number 2.     | Pass      |
+| `choose_race()`                  | `3` (Gorbling)                    | Returns race string "Gorbling, Feline aliens from deep space. +3 Luck -3 Attack" and choice number 3.   | Pass      |
+| `choose_race()`                  | `4` (Chutuleon)                   | Returns race string "Chutuleon, Tentacled squid-like cosmic terror +5 Attack -5 Luck" and choice number 4.| Pass      |
+| `create_character()`             | `Player Name`, `1`, `Health: 4`, `done` | Creates a character named with Player Name with the specified race and health points.                  | Pass      |
+| `clear_screen()`                 | None                              | Clears the terminal screen.                                                                              | Pass      |
+| `dice_roll()`                    | None                              | Returns a random integer between 1 and 20 simulating a D20 roll.                                         | Pass      |
+| `player_input()`                 | `   `                             | Prompts again for input as it's only whitespace.                                                          | Pass      |
+| `Inventory.add_item()`           | `Laser Gun`                       | Adds "Laser Gun" to the inventory and prints "You found a Laser Gun."                                    | Pass      |
+| `Inventory.remove_item()`        | `Laser Gun`                       | Removes "Laser Gun" from the inventory if it exists, prints "You used Laser Gun."                        | Pass      |
+| `Inventory.display_inventory()`  | None                              | Displays the items currently in the inventory.                                                            | Pass      |
+| `Room.add_item()`                | `Laser Gun`                       | Adds "Laser Gun" to the room's item list.                                                                 | Pass      |
+| `intro()`                        | None                              | Displays intro ASCII art and messages, calls `create_character()`.                                         | Pass      |
+| `main()`                         | `search`                          | Returns "search".                                                                                         | Pass      |
+| `main()`                         | `exit`                            | Returns "exit".                                                                                           | Pass      |
+| `main()`                         | `invalid`                         | Prompts again for valid input ("search" or "exit").                                                       | Pass      |
+| `direction()`                    | `left`                            | Returns "left".                                                                                           | Pass      |
+| `direction()`                    | `straight ahead`                  | Returns "straight ahead".                                                                                 | Pass      |
+| `direction()`                    | `right`                           | Returns "right".                                                                                          | Pass      |
+| `direction()`                    | `invalid`                         | Prompts again for valid input ("left", "straight ahead", or "right").                                     | Pass      |
+| `air_lock_luck_check()`          | `1` (search)                      | Searches the room, rolls a dice, and prints results.                                                      | Pass      |
+| `air_lock_luck_check()`          | `2` (inspect panel)               | Prompts user to press a button, processes the input, and prints results.                                   | Pass      |
+| `air_lock_luck_check()`          | `3` (exit)                        | Prints "You exit the room."                                                                               | Pass      |
+| Fight encounter (fight/flee)     | `fight`                           | Initiates combat, rolls a dice, and prints combat outcome.                                                | Pass      |
+| Fight encounter (fight/flee)     | `flee`                            | Attempts to flee, rolls a dice, and prints flee outcome.                                                  | Pass      |
+| Interaction (talk/attack/flee)   | `talk`                            | Initiates conversation, rolls a dice, and prints interaction outcome.                                     | Pass      |
 
 ## Lighthouse Scoring
 ![Lighthouse Result](https://github.com/donaltwo/project3-space-rpg/assets/155965788/f08f0e71-def4-40b7-9718-64476ffd7408)
