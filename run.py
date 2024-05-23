@@ -1,7 +1,9 @@
-# Imported Python libraries for random integers for dice rolls
-
+# Imported Python libraries
+# Operating system library
 import os
+# Random integers library for dice rolls
 import random
+# Time access and conversion library
 import time
 
 # Intro Message ASCII Art
@@ -516,7 +518,6 @@ elif answer == "flee":
     else:
         print("You manage to escape from the alien.")
         print("You run back to the supply closet.")
-# Advantage to roll outcome if you have a laser gun object
 
 print("You detangle yourself from the alien suddenly.")
 print("Being back on your feet, you point your gun at the alien's face.")
